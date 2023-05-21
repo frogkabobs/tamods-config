@@ -250,7 +250,7 @@ Projectiles.setProperty("mirvlauncher", Projectiles.Properties.MIRVSecondaryExpl
 Projectiles.setProperty("mirvlaunchersecondary", Projectiles.Properties.Damage, 400)
 
 --more cluster bomblets
-Projectiles.setProperty("clustergrenade", Projectiles.Properties.MIRVSecondaryExplosions, 8)
+Projectiles.setProperty("clustergrenade", Projectiles.Properties.MIRVSecondaryExplosions, 6)
 Projectiles.setProperty("clusterecondary", Projectiles.Properties.Damage, 425)
 Projectiles.setProperty("clusterecondary", Projectiles.Properties.ExplosiveRadius, 600)
 Projectiles.setProperty("clusterecondary", Projectiles.Properties.ExplodeOnContact, true)
@@ -268,6 +268,7 @@ Projectiles.setProperty("dustdevil", Projectiles.Properties.MinDamageRangePropor
 Projectiles.setProperty("dustdevil", Projectiles.Properties.MinDamageProportion, 0.5)
 Projectiles.setProperty("dustdevil", Projectiles.Properties.Damage, 300.0)
 Projectiles.setProperty("dustdevil", Projectiles.Properties.DirectHitMultiplier, 1.25)
+Projectiles.setProperty("dustdevil", Projectiles.Properties.StuckDamageMultiplier, 1.0)
 
 --saber dumbire like titan
 Projectiles.setProperty("saberlauncherdumbfire", Projectiles.Properties.Damage, 500.00)
@@ -330,7 +331,7 @@ Items.setProperty("Medium", "dustdevil", Items.Properties.ClipAmmo, 5)
 Items.setProperty("Medium", "dustdevil", Items.Properties.FireInterval, 0.2)
 Items.setProperty("Medium", "dustdevil", Items.Properties.ReloadTime, 1.8)
 --long range repair tool
-Items.setProperty("medium", "longrangerepairtool", Items.Properties.PawnRepairPercentage, 0.85)
+Items.setProperty("medium", "longrangerepairtool", Items.Properties.PawnRepairPercentage, 0.085)
 Items.setProperty("medium", "longrangerepairtool", Items.Properties.HitscanRange, 1500.0)
 --frag xl
 ServerSettings.BannedItems.add("medium", "fragxlgrenade")
@@ -405,11 +406,8 @@ Items.setProperty("heavy", "spindisc", Items.Properties.DirectHitMultiplier, 1.2
 Items.setProperty("light", "duelingspin", Items.Properties.DirectHitMultiplier, 1.25)
 Items.setProperty("light", "stealthspin", Items.Properties.DirectHitMultiplier, 1.25)
 Items.setProperty("heavy", "spinfusormkd", Items.Properties.DirectHitMultiplier, 1.25)
-Items.setProperty("medium", "dustdevil", Items.Properties.MaxDamageRangeProportion, 0.0)
-Items.setProperty("medium", "dustdevil", Items.Properties.MinDamageRangeProportion, 1.0)
-Items.setProperty("medium", "dustdevil", Items.Properties.MinDamageProportion, 0.5)
-Items.setProperty("medium", "dustdevil", Items.Properties.Damage, 300.0)
-Items.setProperty("medium", "dustdevil", Items.Properties.DirectHitMultiplier, 1.25)
+
+
 
 require("admin")
 
