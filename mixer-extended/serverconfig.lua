@@ -400,15 +400,16 @@ Items.setProperty("Heavy", "apxl", Items.Properties.ExplodeOnContact, true)
 Items.setProperty("Heavy", "apxl", Items.Properties.MustBounceBeforeExplode, false)
 ]]
 
+
+Items.setProperty("heavy", "spindisc", Items.Properties.DirectHitMultiplier, 1.25)
 Items.setProperty("light", "duelingspin", Items.Properties.DirectHitMultiplier, 1.25)
 Items.setProperty("light", "stealthspin", Items.Properties.DirectHitMultiplier, 1.25)
 Items.setProperty("heavy", "spinfusormkd", Items.Properties.DirectHitMultiplier, 1.25)
-Items.setProperty("heavy", "spindisc", Items.Properties.DirectHitMultiplier, 1.25)
 Items.setProperty("medium", "dustdevil", Items.Properties.MaxDamageRangeProportion, 0.0)
-Items.setProperty("medium", Items.Properties.MinDamageRangeProportion, 1.0)
-Items.setProperty("medium", Items.Properties.MinDamageProportion, 0.5)
-Items.setProperty("medium", Items.Properties.Damage, 300.0)
-Items.setProperty("medium", Items.Properties.DirectHitMultiplier, 1.25)
+Items.setProperty("medium", "dustdevil", Items.Properties.MinDamageRangeProportion, 1.0)
+Items.setProperty("medium", "dustdevil", Items.Properties.MinDamageProportion, 0.5)
+Items.setProperty("medium", "dustdevil", Items.Properties.Damage, 300.0)
+Items.setProperty("medium", "dustdevil", Items.Properties.DirectHitMultiplier, 1.25)
 
 require("admin")
 
