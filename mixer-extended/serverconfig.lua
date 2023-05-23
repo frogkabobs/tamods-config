@@ -267,8 +267,8 @@ Projectiles.setProperty("dustdevil", Projectiles.Properties.MaxDamageRangePropor
 Projectiles.setProperty("dustdevil", Projectiles.Properties.MinDamageRangeProportion, 1.0)
 Projectiles.setProperty("dustdevil", Projectiles.Properties.MinDamageProportion, 0.5)
 Projectiles.setProperty("dustdevil", Projectiles.Properties.Damage, 300.0)
-Projectiles.setProperty("dustdevil", Projectiles.Properties.DirectHitMultiplier, 1.25)
-Projectiles.setProperty("dustdevil", Projectiles.Properties.StuckDamageMultiplier, 1.0)
+Projectiles.setProperty("dustdevil", Projectiles.Properties.DirectHitMultiplier, 1.0)
+Projectiles.setProperty("dustdevil", Projectiles.Properties.StuckDamageMultiplier, 1.25)
 
 --saber dumbire like titan
 Projectiles.setProperty("saberlauncherdumbfire", Projectiles.Properties.Damage, 500.00)
@@ -288,6 +288,7 @@ Items.setProperty("medium", "repairtool", Items.Properties.HitscanRange, 1000.0)
 --Extended
 
 ServerSettings.BannedItems.add("Light", "BXT1A")
+ServerSettings.BannedItems.add("Light", "Sap20")
 ServerSettings.BannedItems.add("Light", "Rhino")
 ServerSettings.BannedItems.add("Light", "ArcticRhino")
 ServerSettings.BannedItems.add("Light", "AccurizedShotgun")
@@ -295,12 +296,12 @@ ServerSettings.BannedItems.add("Light", "HoldoutShotgun")
 ServerSettings.BannedItems.add("Medium", "TCN4")
 ServerSettings.BannedItems.add("Medium", "GastsRifle")
 ServerSettings.BannedItems.add("Medium", "DesertNJ4")
-ServerSettings.BannedItems.add("Medium", "RockwindTCN4")
+ServerSettings.BannedItems.add("Medium", "TCN4Rockwind")
 ServerSettings.BannedItems.add("Heavy", "Chain Cannon")
 ServerSettings.BannedItems.add("Heavy", "TheHammer")
 
 --stickyxl
-ServerSettings.BannedItems.add("Light", "stickyxl")
+--ServerSettings.BannedItems.add("Light", "stickyxl")
 
 Items.setProperty("light", "duelingspin", Items.Properties.Damage, 600.0)
 Items.setProperty("light", "duelingspin", Items.Properties.MinDamageProportion, 0.2)
@@ -309,15 +310,26 @@ Items.setProperty("light", "duelingspin", Items.Properties.MaxDamageRangeProport
 Items.setProperty("light", "duelingspin", Items.Properties.ProjectileInheritance, 0.75)
 Items.setProperty("light", "duelingspin", Items.Properties.ProjectileLifespan, 12.0)
 
-Items.setProperty("light", "stealthspin", Items.Properties.Damage, 600.0)
+Items.setProperty("light", "stealthspin", Items.Properties.Damage, 333.4)
+Items.setProperty("light", "stealthspin", Items.Properties.ClipAmmo, 2)
+Items.setProperty("light", "stealthspin", Items.Properties.SpareAmmo, 46)
 Items.setProperty("light", "stealthspin", Items.Properties.MinDamageProportion, 0.2)
 Items.setProperty("light", "stealthspin", Items.Properties.MinDamageRangeProportion, 1.0)
 Items.setProperty("light", "stealthspin", Items.Properties.MaxDamageRangeProportion, 0.0)
-Items.setProperty("light", "stealthspin", Items.Properties.ProjectileInheritance, 0.5)
+Items.setProperty("light", "stealthspin", Items.Properties.ProjectileInheritance, 1.0)
 Items.setProperty("light", "stealthspin", Items.Properties.ProjectileLifespan, 12.0)
 
 --thumper d
-ServerSettings.BannedItems.add("medium", "thumperd")
+--ServerSettings.BannedItems.add("medium", "thumperd")
+
+Items.setProperty("medium", "thumperd", Items.Properties.Damage, 370)
+--Items.setProperty("Medium", "thumperd", Items.Properties.MinDamageProportion, 0.3)
+Items.setProperty("medium", "thumperd", Items.Properties.MinDamageRangeProprotion, 1.0)
+Items.setProperty("medium", "thumperd", Items.Properties.MaxDamageRangeProprotion, 0.0)
+Items.setProperty("medium", "thumperd", Items.Properties.ClipAmmo, 2)
+Items.setProperty("medium", "thumperd", Items.Properties.DirectHitMultiplier, 1.5)
+Items.setProperty("medium", "thumperd", Items.Properties.ProjectileInheritance, 30000)
+
 --[[
 Items.setProperty("Medium", "thumperd", Items.Properties.Damage, 700)
 Items.setProperty("Medium", "thumperd", Items.Properties.ExplosiveRadius, 400)
@@ -349,6 +361,10 @@ Items.setProperty("Medium", "fragxlgrenade", Items.Properties.MustBounceBeforeEx
 --tcng
 ServerSettings.BannedItems.add("medium", "tcngquickfuse")
 --proxy
+Items.setProperty("medium", "proxy", Items.Properties.MinDamageProportion, 0.5)
+Items.setProperty("medium", "proxy", Items.Properties.MinDamageRangeProportion, 1.0)
+Items.setProperty("medium", "proxy", Items.Properties.MaxDamageRangeProportion, 0.0)
+
 --emp xl
 ServerSettings.BannedItems.add("medium", "empxl")
 --short fuse
@@ -374,12 +390,20 @@ Items.setProperty("heavy", "spinfusormkx", Items.Properties.ProjectileInheritanc
 Items.setProperty("heavy", "spinfusormkx", Items.Properties.ProjectileLifespan, 12.0)
 ]]
 --fusion mortar delux
-ServerSettings.BannedItems.add("Heavy", "fusionmortardeluxe")
+--ServerSettings.BannedItems.add("Heavy", "fusionmortardeluxe")
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.Damage, 1300.0)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DirectHitMultiplier, 1.15384615385)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MinDamageProportion, 0.46153846153)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MinDamageRangeProportion, 1.0)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MaxDamageRangeProportion, 0.0)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileInheritance, 1.0)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileLifespan, 12.0)
 --extended fractal
 ServerSettings.BannedItems.add("Heavy", "extendedfractal")
 --heavy sticky
 Items.setProperty("heavy", "heavystickygrenade", Items.Properties.MinDamageRangeProportion, 1.0)
 Items.setProperty("heavy", "heavystickygrenade", Items.Properties.MaxDamageRangeProportion, 0.0)
+Items.setProperty("heavy", "heavystickygrenade", Items.Properties.SpareAmmo, 3)
 --spin disc
 Items.setProperty("heavy", "spindisc", Items.Properties.Damage, 600.0)
 Items.setProperty("heavy", "spindisc", Items.Properties.MinDamageProportion, 0.2)
@@ -404,7 +428,7 @@ Items.setProperty("Heavy", "apxl", Items.Properties.MustBounceBeforeExplode, fal
 
 Items.setProperty("heavy", "spindisc", Items.Properties.DirectHitMultiplier, 1.25)
 Items.setProperty("light", "duelingspin", Items.Properties.DirectHitMultiplier, 1.25)
-Items.setProperty("light", "stealthspin", Items.Properties.DirectHitMultiplier, 1.25)
+Items.setProperty("light", "stealthspin", Items.Properties.DirectHitMultiplier, 1.5)
 Items.setProperty("heavy", "spinfusormkd", Items.Properties.DirectHitMultiplier, 1.25)
 
 
