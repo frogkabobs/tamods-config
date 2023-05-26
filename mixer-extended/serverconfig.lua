@@ -36,6 +36,149 @@ ServerSettings.InventoryCallInBuildUpTime = 2.0
 ServerSettings.InventoryCallInCooldownTime = 30.0
 
 
+-------------- ADMIN -------------------------------
+require("admin")
+
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ','
+      end
+      return s .. '} '
+   else
+      return tostring(o)
+   end
+end
+
+local commands = {
+    {
+        name      = "NextMap",
+        arguments = {
+            {"MapId", Admin.Command.ArgumentType.Int},
+        },
+        func      = function (player, role, MapId)
+            if Admin.Game.NextMap(MapId) then
+                Admin.SendConsoleMessageToAllPlayers(player .. " set next map id to " .. MapId)
+            else
+                Admin.SendConsoleMessageToPlayer(player, "Failed to set next map to " .. MapId)
+            end
+
+        end,
+    },
+    {
+        name      = "NextMapName",
+        arguments = {
+            {"MapName", Admin.Command.ArgumentType.String},
+        },
+        func      = function (player, role, MapName)
+            if Admin.Game.NextMapByFilename(MapName) then
+                Admin.SendConsoleMessageToAllPlayers(player .. " set next map name to " .. MapId)
+            else
+                Admin.SendConsoleMessageToPlayer(player, "Failed to set next map to " .. MapName)
+            end
+
+        end,
+    },
+    {
+        name      = "StartMap",
+        arguments = {},
+        func      = function (player, role)
+            Admin.Game.StartMap()
+            Admin.SendConsoleMessageToAllPlayers("Map started by " .. player)
+        end,
+    },
+    {
+        name      = "EndMap",
+        arguments = {},
+        func      = function (player, role)
+            Admin.Game.EndMap()
+            Admin.SendConsoleMessageToAllPlayers("Map ended by " .. player)
+        end,
+    },
+  }
+
+  function doSetupRoles(roles)
+    for cmdIdx, command in pairs(commands) do
+        Admin.Command.define(command.name, command.arguments, command.func)
+    end
+
+    for roleIdx, role in pairs(roles) do
+        Admin.Roles.addLoginlessRole(role.name, role.canLua)
+        for cmdIdx, cmdName in pairs(role.commands) do
+            Admin.Roles.addAllowedCommand(role.name, cmdName)
+        end
+    end
+  end
+
+  local roles = {
+      {
+          name     = "admin",
+          commands = {"NextMap", "NextMapName", "StartMap", "EndMap"},
+          canLua   = true,
+      },
+      {
+          name     = "mod",
+          commands = {"NextMap", "NextMapName", "StartMap", "EndMap"},
+          canLua   = false,
+      },
+    }
+  doSetupRoles(roles)
+
+  --------------------------------------------------------------------------------
+  Admin.Roles.addMember("admin", "fuck")
+  Admin.Roles.addMember("admin", "Wrightrj")
+  Admin.Roles.addMember("admin", "Dodge")
+  Admin.Roles.addMember("admin", "Gigabyte5671")
+  Admin.Roles.addMember("admin", "frogkabobs")
+
+
+-------------- MAP ROTATION --------------
+
+-- The default map rotation is: Katabatic, ArxNovena, DangerousCrossing, Crossfire, Drydock, Terminus, Sunstar
+-- You can override the default map rotation by uncommenting any of the maps below.
+
+ServerSettings.MapRotation.add(Maps.CTF.Katabatic)
+ServerSettings.MapRotation.add(Maps.CTF.ArxNovena)
+ServerSettings.MapRotation.add(Maps.CTF.DangerousCrossing)
+ServerSettings.MapRotation.add(Maps.CTF.Crossfire)
+ServerSettings.MapRotation.add(Maps.CTF.Drydock)
+ServerSettings.MapRotation.add(Maps.CTF.Terminus)
+ServerSettings.MapRotation.add(Maps.CTF.Sunstar)
+ServerSettings.MapRotation.add(Maps.CTF.BellaOmegaNS)
+ServerSettings.MapRotation.add(Maps.CTF.CanyonCrusade)
+ServerSettings.MapRotation.add(Maps.CTF.BellaOmega)
+ServerSettings.MapRotation.add(Maps.CTF.Blueshift)
+ServerSettings.MapRotation.add(Maps.CTF.Hellfire)
+ServerSettings.MapRotation.add(Maps.CTF.IceCoaster)
+ServerSettings.MapRotation.add(Maps.CTF.Perdition)
+ServerSettings.MapRotation.add(Maps.CTF.Permafrost)
+ServerSettings.MapRotation.add(Maps.CTF.Raindance)
+ServerSettings.MapRotation.add(Maps.CTF.Stonehenge)
+ServerSettings.MapRotation.add(Maps.CTF.Tartarus)
+ServerSettings.MapRotation.add(Maps.CTF.TempleRuins)
+-------------- Player Made Maps --------------
+-- Note: These need to be installed manually on the server prior to enabling.
+
+ServerSettings.MapRotation.addCustom("TrCTF-Blues")
+ServerSettings.MapRotation.addCustom("TrCTF-Incidamus")
+ServerSettings.MapRotation.addCustom("TrCTF-Periculo")
+ServerSettings.MapRotation.addCustom("TrCTF-Fracture")
+ServerSettings.MapRotation.addCustom("TrCTF-Phlegethon")
+ServerSettings.MapRotation.addCustom("TrCTF-DesertedValley")
+ServerSettings.MapRotation.addCustom("TrCTF-Acheron")
+ServerSettings.MapRotation.addCustom("TrCTF-Styx")
+ServerSettings.MapRotation.addCustom("TrCTF-Eclipse")
+ServerSettings.MapRotation.addCustom("TrCTF-Polaris")
+ServerSettings.MapRotation.addCustom("TrCTF-Oceanus")
+ServerSettings.MapRotation.addCustom("TrCTF-Meridian")
+ServerSettings.MapRotation.addCustom("TrCTF-Ascent")
+ServerSettings.MapRotation.addCustom("TrCTF-Crash")
+ServerSettings.MapRotation.addCustom("TrCTF-TreacherousPass")
+
+
+
 -------------- STANDARD OOTB SETTINGS --------------
 
 ServerSettings.MutuallyExclusiveItems.add("Light", "BXT1", "Light", "Thrust Pack")
@@ -302,6 +445,9 @@ ServerSettings.BannedItems.add("Heavy", "TheHammer")
 
 --stickyxl
 --ServerSettings.BannedItems.add("Light", "stickyxl")
+Items.setProperty("light", "stickyxl", Items.Properties.Damage, 1300)
+Items.setProperty("light", "stickyxl", Items.Properties.StuckDamageMultiplier, 1.0)
+Items.setProperty("light", "stickyxl", Items.Properties.DirectHitMultiplier, 1.0)
 
 Items.setProperty("light", "duelingspin", Items.Properties.Damage, 600.0)
 Items.setProperty("light", "duelingspin", Items.Properties.MinDamageProportion, 0.2)
@@ -310,34 +456,30 @@ Items.setProperty("light", "duelingspin", Items.Properties.MaxDamageRangeProport
 Items.setProperty("light", "duelingspin", Items.Properties.ProjectileInheritance, 0.75)
 Items.setProperty("light", "duelingspin", Items.Properties.ProjectileLifespan, 12.0)
 
-Items.setProperty("light", "stealthspin", Items.Properties.Damage, 333.4)
-Items.setProperty("light", "stealthspin", Items.Properties.ClipAmmo, 2)
-Items.setProperty("light", "stealthspin", Items.Properties.SpareAmmo, 46)
-Items.setProperty("light", "stealthspin", Items.Properties.MinDamageProportion, 0.2)
+Items.setProperty("light", "stealthspin", Items.Properties.Damage, 400)
+Items.setProperty("light", "stealthspin", Items.Properties.MinDamageProportion, 0.3)
 Items.setProperty("light", "stealthspin", Items.Properties.MinDamageRangeProportion, 1.0)
-Items.setProperty("light", "stealthspin", Items.Properties.MaxDamageRangeProportion, 0.0)
-Items.setProperty("light", "stealthspin", Items.Properties.ProjectileInheritance, 1.0)
+Items.setProperty("light", "stealthspin", Items.Properties.MaxDamageRangeProportion, 0.41667)
+Items.setProperty("light", "stealthspin", Items.Properties.SelfImpactExtraZMomentum, 90000)
+Items.setProperty("light", "stealthspin", Items.Properties.SelfImpactMomentumMultiplier, 1.2)
+Items.setProperty("light", "stealthspin", Items.Properties.ProjectileInheritance, 0.5)
 Items.setProperty("light", "stealthspin", Items.Properties.ProjectileLifespan, 12.0)
+Items.setValueMods("Light", "stealthspin", {
+    {ValueMods.SafeFall, true},
+    table.unpack(Items.getValueMods("Light", "stealthspin"))
+  })
 
 --thumper d
 --ServerSettings.BannedItems.add("medium", "thumperd")
 
 Items.setProperty("medium", "thumperd", Items.Properties.Damage, 370)
 --Items.setProperty("Medium", "thumperd", Items.Properties.MinDamageProportion, 0.3)
-Items.setProperty("medium", "thumperd", Items.Properties.MinDamageRangeProprotion, 1.0)
-Items.setProperty("medium", "thumperd", Items.Properties.MaxDamageRangeProprotion, 0.0)
+Items.setProperty("medium", "thumperd", Items.Properties.MinDamageRangeProportion, 1.0)
+Items.setProperty("medium", "thumperd", Items.Properties.MaxDamageRangeProportion, 0.0)
 Items.setProperty("medium", "thumperd", Items.Properties.ClipAmmo, 2)
 Items.setProperty("medium", "thumperd", Items.Properties.DirectHitMultiplier, 1.5)
-Items.setProperty("medium", "thumperd", Items.Properties.ProjectileInheritance, 30000)
+Items.setProperty("medium", "thumperd", Items.Properties.ImpactMomentum, 30000)
 
---[[
-Items.setProperty("Medium", "thumperd", Items.Properties.Damage, 700)
-Items.setProperty("Medium", "thumperd", Items.Properties.ExplosiveRadius, 400)
-Items.setProperty("Medium", "thumperd", Items.Properties.MinDamageProportion, 0.3)
-Items.setProperty("Medium", "thumperd", Items.Properties.MinDamageRangeProportion, 1.0)
-Items.setProperty("Medium", "thumperd", Items.Properties.MaxDamageRangeProportion, 0.0)
-Items.setProperty("Medium", "thumperd", Items.Properties.ImpactMomentum, 85000.0)
-]]
 --dust devil
 Items.setProperty("Medium", "dustdevil", Items.Properties.ClipAmmo, 5)
 Items.setProperty("Medium", "dustdevil", Items.Properties.FireInterval, 0.2)
@@ -346,31 +488,77 @@ Items.setProperty("Medium", "dustdevil", Items.Properties.ReloadTime, 1.8)
 Items.setProperty("medium", "longrangerepairtool", Items.Properties.PawnRepairPercentage, 0.085)
 Items.setProperty("medium", "longrangerepairtool", Items.Properties.HitscanRange, 1500.0)
 --frag xl
-ServerSettings.BannedItems.add("medium", "fragxlgrenade")
---[[
-Items.setProperty("Medium", "fragxlgrenade", Items.Properties.Damage, 880.00)
-Items.setProperty("Medium", "fragxlgrenade", Items.Properties.DirectHitMultiplier, 1.25)
+--ServerSettings.BannedItems.add("medium", "fragxlgrenade")
+----[[
+Items.setProperty("Medium", "fragxlgrenade", Items.Properties.SpareAmmo, 2)
+Items.setProperty("Medium", "fragxlgrenade", Items.Properties.Damage, 1100.00)
+Items.setProperty("Medium", "fragxlgrenade", Items.Properties.DirectHitMultiplier, 1.0)
 Items.setProperty("Medium", "fragxlgrenade", Items.Properties.ImpactMomentum, 110000.00)
 Items.setProperty("Medium", "fragxlgrenade", Items.Properties.MinDamageRangeProportion, 1.0)
 Items.setProperty("Medium", "fragxlgrenade", Items.Properties.MaxDamageRangeProportion, 0.0)
 Items.setProperty("Medium", "fragxlgrenade", Items.Properties.MinDamageProportion, 0.5)
-Items.setProperty("Medium", "fragxlgrenade", Items.Properties.ExplosiveRadius, 800.00)
+Items.setProperty("Medium", "fragxlgrenade", Items.Properties.ExplosiveRadius, 600.00)
 Items.setProperty("Medium", "fragxlgrenade", Items.Properties.ExplodeOnContact, true)
 Items.setProperty("Medium", "fragxlgrenade", Items.Properties.MustBounceBeforeExplode, false)
-]]
+--]]
 --tcng
-ServerSettings.BannedItems.add("medium", "tcngquickfuse")
+--ServerSettings.BannedItems.add("medium", "tcngquickfuse")
+Items.setProperty("Medium", "tcng", Items.Properties.SpareAmmo, 2)
+Items.setProperty("Medium", "tcng", Items.Properties.FuseTimer, 2.0)
+Items.setProperty("Medium", "tcng", Items.Properties.Damage, 880.00)
+Items.setProperty("Medium", "tcng", Items.Properties.DirectHitMultiplier, 1.25)
+Items.setProperty("Medium", "tcng", Items.Properties.ImpactMomentum, -110000.00)
+Items.setProperty("Medium", "tcng", Items.Properties.MinDamageRangeProportion, 1.0)
+Items.setProperty("Medium", "tcng", Items.Properties.MaxDamageRangeProportion, 0.0)
+Items.setProperty("Medium", "tcng", Items.Properties.MinDamageProportion, 0.5)
+Items.setProperty("Medium", "tcng", Items.Properties.ExplosiveRadius, 800.00)
+Items.setProperty("Medium", "tcng", Items.Properties.ExplodeOnContact, true)
+Items.setProperty("Medium", "tcng", Items.Properties.MustBounceBeforeExplode, false)
+
+Items.setProperty("Medium", "tcngquickfuse", Items.Properties.SpareAmmo, 2)
+Items.setProperty("Medium", "tcngquickfuse", Items.Properties.Damage, 880.00)
+Items.setProperty("Medium", "tcngquickfuse", Items.Properties.DirectHitMultiplier, 1.25)
+Items.setProperty("Medium", "tcngquickfuse", Items.Properties.ImpactMomentum, -110000.00)
+Items.setProperty("Medium", "tcngquickfuse", Items.Properties.MinDamageRangeProportion, 1.0)
+Items.setProperty("Medium", "tcngquickfuse", Items.Properties.MaxDamageRangeProportion, 0.0)
+Items.setProperty("Medium", "tcngquickfuse", Items.Properties.MinDamageProportion, 0.5)
+Items.setProperty("Medium", "tcngquickfuse", Items.Properties.ExplosiveRadius, 600.00)
+Items.setProperty("Medium", "tcngquickfuse", Items.Properties.ExplodeOnContact, true)
+Items.setProperty("Medium", "tcngquickfuse", Items.Properties.MustBounceBeforeExplode, false)
 --proxy
+Items.setProperty("Medium", "proxy", Items.Properties.SpareAmmo, 2)
 Items.setProperty("medium", "proxy", Items.Properties.MinDamageProportion, 0.5)
 Items.setProperty("medium", "proxy", Items.Properties.MinDamageRangeProportion, 1.0)
 Items.setProperty("medium", "proxy", Items.Properties.MaxDamageRangeProportion, 0.0)
 
 --emp xl
-ServerSettings.BannedItems.add("medium", "empxl")
+--ServerSettings.BannedItems.add("medium", "empxl")
+Items.setProperty("Medium", "empxl", Items.Properties.SpareAmmo, 2)
+Items.setProperty("Medium", "empxl", Items.Properties.Damage, 500.00)
+Items.setProperty("Medium", "empxl", Items.Properties.ImpactMomentum, 85000.00)
+Items.setProperty("Medium", "empxl", Items.Properties.MinDamageRangeProportion, 1.0)
+Items.setProperty("Medium", "empxl", Items.Properties.MaxDamageRangeProportion, 0.0)
+Items.setProperty("Medium", "empxl", Items.Properties.MinDamageProportion, 0.5)
+Items.setProperty("Medium", "empxl", Items.Properties.ExplosiveRadius, 800.00)
+Items.setProperty("Medium", "empxl", Items.Properties.EnergyDrain, 800)
+
+Items.setProperty("Medium", "emp", Items.Properties.Damage, 700.00)
+Items.setProperty("Medium", "emp", Items.Properties.ImpactMomentum, 110000.00)
 --short fuse
 --ServerSettings.BannedItems.add("medium", "shortfuse")
+Items.setProperty("Medium", "shortfuse", Items.Properties.FuseTimer, 1.2)
+Items.setProperty("Medium", "shortfuse", Items.Properties.Damage, 800.00)
+Items.setProperty("Medium", "shortfuse", Items.Properties.DirectHitMultiplier, 1.25)
+Items.setProperty("Medium", "shortfuse", Items.Properties.ImpactMomentum, 85000.00)
+Items.setProperty("Medium", "shortfuse", Items.Properties.MinDamageRangeProportion, 1.0)
+Items.setProperty("Medium", "shortfuse", Items.Properties.MaxDamageRangeProportion, 0.0)
+Items.setProperty("Medium", "shortfuse", Items.Properties.MinDamageProportion, 0.5)
+Items.setProperty("Medium", "shortfuse", Items.Properties.ExplosiveRadius, 600.00)
+Items.setProperty("Medium", "shortfuse", Items.Properties.ExplodeOnContact, true)
+Items.setProperty("Medium", "shortfuse", Items.Properties.MustBounceBeforeExplode, false)
+
 --tcng quickfuse
-ServerSettings.BannedItems.add("medium", "tcngquickfuse")
+--ServerSettings.BannedItems.add("medium", "tcngquickfuse")
 
 --spin mkd
 Items.setProperty("heavy", "spinfusormkd", Items.Properties.Damage, 800.0)
@@ -399,7 +587,21 @@ Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MaxDamageRange
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileInheritance, 1.0)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileLifespan, 12.0)
 --extended fractal
-ServerSettings.BannedItems.add("Heavy", "extendedfractal")
+--ServerSettings.BannedItems.add("Heavy", "extendedfractal")
+Items.setProperty("heavy", "extendedfractal", Items.Properties.SpareAmmo, 2)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.Damage, 600)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.ExplosiveRadius, 600)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalDuration, 1.5)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalAscentTime, 0.01)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FuseTimer, 1.0)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardDamage, 400)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardRadius, 400)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalAscentHeight, 0)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardHeight, 0.01)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardDistance, 0.00)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.MinDamageProportion, 0.5)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.ImpactMomentum, 60000)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.MustBounceBeforeExplode, false)
 --heavy sticky
 Items.setProperty("heavy", "heavystickygrenade", Items.Properties.MinDamageRangeProportion, 1.0)
 Items.setProperty("heavy", "heavystickygrenade", Items.Properties.MaxDamageRangeProportion, 0.0)
@@ -428,147 +630,7 @@ Items.setProperty("Heavy", "apxl", Items.Properties.MustBounceBeforeExplode, fal
 
 Items.setProperty("heavy", "spindisc", Items.Properties.DirectHitMultiplier, 1.25)
 Items.setProperty("light", "duelingspin", Items.Properties.DirectHitMultiplier, 1.25)
-Items.setProperty("light", "stealthspin", Items.Properties.DirectHitMultiplier, 1.5)
+Items.setProperty("light", "stealthspin", Items.Properties.DirectHitMultiplier, 1.875)
 Items.setProperty("heavy", "spinfusormkd", Items.Properties.DirectHitMultiplier, 1.25)
 
-
-
-require("admin")
-
-function dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
-end
-
-local commands = {
-    {
-        name      = "NextMap",
-        arguments = {
-            {"MapId", Admin.Command.ArgumentType.Int},
-        },
-        func      = function (player, role, MapId)
-            if Admin.Game.NextMap(MapId) then
-                Admin.SendConsoleMessageToAllPlayers(player .. " set next map id to " .. MapId)
-            else
-                Admin.SendConsoleMessageToPlayer(player, "Failed to set next map to " .. MapId)
-            end
-
-        end,
-    },
-    {
-        name      = "NextMapName",
-        arguments = {
-            {"MapName", Admin.Command.ArgumentType.String},
-        },
-        func      = function (player, role, MapName)
-            if Admin.Game.NextMapByFilename(MapName) then
-                Admin.SendConsoleMessageToAllPlayers(player .. " set next map name to " .. MapId)
-            else
-                Admin.SendConsoleMessageToPlayer(player, "Failed to set next map to " .. MapName)
-            end
-
-        end,
-    },
-    {
-        name      = "StartMap",
-        arguments = {},
-        func      = function (player, role)
-            Admin.Game.StartMap()
-            Admin.SendConsoleMessageToAllPlayers("Map started by " .. player)
-        end,
-    },
-    {
-        name      = "EndMap",
-        arguments = {},
-        func      = function (player, role)
-            Admin.Game.EndMap()
-            Admin.SendConsoleMessageToAllPlayers("Map ended by " .. player)
-        end,
-    },
-  }
-
-  function doSetupRoles(roles)
-    for cmdIdx, command in pairs(commands) do
-        Admin.Command.define(command.name, command.arguments, command.func)
-    end
-
-    for roleIdx, role in pairs(roles) do
-        Admin.Roles.addLoginlessRole(role.name, role.canLua)
-        for cmdIdx, cmdName in pairs(role.commands) do
-            Admin.Roles.addAllowedCommand(role.name, cmdName)
-        end
-    end
-  end
-
-  local roles = {
-      {
-          name     = "admin",
-          commands = {"NextMap", "NextMapName", "StartMap", "EndMap"},
-          canLua   = true,
-      },
-      {
-          name     = "mod",
-          commands = {"NextMap", "NextMapName", "StartMap", "EndMap"},
-          canLua   = false,
-      },
-    }
-  doSetupRoles(roles)
-
-  --------------------------------------------------------------------------------
-  Admin.Roles.addMember("admin", "fuck")
-  Admin.Roles.addMember("admin", "Wrightrj")
-  Admin.Roles.addMember("admin", "Dodge")
-  Admin.Roles.addMember("admin", "Gigabyte5671")
-  Admin.Roles.addMember("admin", "frogkabobs")
-
-
--------------- MAP ROTATION --------------
-
--- The default map rotation is: Katabatic, ArxNovena, DangerousCrossing, Crossfire, Drydock, Terminus, Sunstar
--- You can override the default map rotation by uncommenting any of the maps below.
-
-ServerSettings.MapRotation.add(Maps.CTF.Katabatic)
-ServerSettings.MapRotation.add(Maps.CTF.ArxNovena)
-ServerSettings.MapRotation.add(Maps.CTF.DangerousCrossing)
-ServerSettings.MapRotation.add(Maps.CTF.Crossfire)
-ServerSettings.MapRotation.add(Maps.CTF.Drydock)
-ServerSettings.MapRotation.add(Maps.CTF.Terminus)
-ServerSettings.MapRotation.add(Maps.CTF.Sunstar)
-ServerSettings.MapRotation.add(Maps.CTF.BellaOmegaNS)
-ServerSettings.MapRotation.add(Maps.CTF.CanyonCrusade)
-ServerSettings.MapRotation.add(Maps.CTF.BellaOmega)
-ServerSettings.MapRotation.add(Maps.CTF.Blueshift)
-ServerSettings.MapRotation.add(Maps.CTF.Hellfire)
-ServerSettings.MapRotation.add(Maps.CTF.IceCoaster)
-ServerSettings.MapRotation.add(Maps.CTF.Perdition)
-ServerSettings.MapRotation.add(Maps.CTF.Permafrost)
-ServerSettings.MapRotation.add(Maps.CTF.Raindance)
-ServerSettings.MapRotation.add(Maps.CTF.Stonehenge)
-ServerSettings.MapRotation.add(Maps.CTF.Tartarus)
-ServerSettings.MapRotation.add(Maps.CTF.TempleRuins)
--------------- Player Made Maps --------------
--- Note: These need to be installed manually on the server prior to enabling.
-
-ServerSettings.MapRotation.addCustom("TrCTF-Blues")
-ServerSettings.MapRotation.addCustom("TrCTF-Incidamus")
-ServerSettings.MapRotation.addCustom("TrCTF-Periculo")
-ServerSettings.MapRotation.addCustom("TrCTF-Fracture")
-ServerSettings.MapRotation.addCustom("TrCTF-Phlegethon")
-ServerSettings.MapRotation.addCustom("TrCTF-DesertedValley")
-ServerSettings.MapRotation.addCustom("TrCTF-Acheron")
-ServerSettings.MapRotation.addCustom("TrCTF-Styx")
-ServerSettings.MapRotation.addCustom("TrCTF-Eclipse")
-ServerSettings.MapRotation.addCustom("TrCTF-Polaris")
-ServerSettings.MapRotation.addCustom("TrCTF-Oceanus")
-ServerSettings.MapRotation.addCustom("TrCTF-Meridian")
-ServerSettings.MapRotation.addCustom("TrCTF-Ascent")
-ServerSettings.MapRotation.addCustom("TrCTF-Crash")
-ServerSettings.MapRotation.addCustom("TrCTF-TreacherousPass")
+Projectiles.setProperty("grenademkd", Projectiles.Properties.ProjectileBounceDamping, 1.0)
