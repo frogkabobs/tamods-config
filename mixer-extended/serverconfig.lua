@@ -570,7 +570,7 @@ Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardHeigh
 Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardDistance, 0.00)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardInterval, 0.5)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.MinDamageProportion, 0.5)
-Projectiles.setProperty("extendedfractal", Projectiles.Properties.ImpactMomentum, -50000.0)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.ImpactMomentum, 60000.0)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.MustBounceBeforeExplode, false)
 --heavy sticky
 Items.setProperty("heavy", "heavystickygrenade", Items.Properties.MinDamageRangeProportion, 1.0)
