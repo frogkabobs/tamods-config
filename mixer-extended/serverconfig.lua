@@ -557,6 +557,7 @@ Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MinDamageRange
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MaxDamageRangeProportion, 0.0)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileInheritance, 1.0)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileLifespan, 12.0)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstGeneratorMultiplier, 3.0)
 --extended fractal
 --ServerSettings.BannedItems.add("Heavy", "extendedfractal")
 Items.setProperty("heavy", "extendedfractal", Items.Properties.SpareAmmo, 2)
@@ -630,9 +631,11 @@ Projectiles.setProperty("flaregrenade", Projectiles.Properties.ExplosiveRadius, 
 Projectiles.setProperty("flaregrenade", Projectiles.Properties.ImpactMomentum, 85000)
 
 ServerSettings.MutuallyExclusiveItems.add("Medium", "honorfusor", "Medium", "ArxBuster")
+ServerSettings.MutuallyExclusiveItems.add("Medium", "honorfusor", "Medium", "DustDevil")
 ServerSettings.MutuallyExclusiveItems.add("Medium", "honorfusor", "Medium", "PlasmaGun")
 ServerSettings.MutuallyExclusiveItems.add("Medium", "honorfusor", "Medium", "GrenadeLauncher")
 
 ServerSettings.MutuallyExclusiveItems.add("Medium", "thumperd", "Medium", "ArxBuster")
+ServerSettings.MutuallyExclusiveItems.add("Medium", "thumperd", "Medium", "DustDevil")
 ServerSettings.MutuallyExclusiveItems.add("Medium", "thumperd", "Medium", "PlasmaGun")
 ServerSettings.MutuallyExclusiveItems.add("Medium", "thumperd", "Medium", "GrenadeLauncher")
