@@ -557,7 +557,12 @@ Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MinDamageRange
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MaxDamageRangeProportion, 0.0)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileInheritance, 1.0)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileLifespan, 12.0)
-Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstGeneratorMultiplier, 3.0)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstGeneratorMultiplier, 2.5)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstBaseTurretMultiplier, 2.5)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstBaseSensorMultiplier, 2.5)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstGravCycleMultiplier, 2.5)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstShrikeMultiplier, 2.5)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstBeowulfMultiplier, 2.5)
 --extended fractal
 --ServerSettings.BannedItems.add("Heavy", "extendedfractal")
 Items.setProperty("heavy", "extendedfractal", Items.Properties.SpareAmmo, 2)
