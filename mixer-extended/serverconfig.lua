@@ -400,12 +400,14 @@ Items.setProperty("light", "stickyxl", Items.Properties.DirectHitMultiplier, 1.0
 Items.setProperty("light", "stickyxl", Items.Properties.MinDamageProportion, 0.5)
 
 Items.setProperty("light", "compactnitron", Items.Properties.ExplosiveRadius, 350)
+Items.setProperty("light", "compactnitron", Items.Properties.MinDamageProportion, 0.5)
 Items.setProperty("light", "compactnitron", Items.Properties.SpareAmmo, 3)
 
 Projectiles.setProperty("heavyimpactnitron", Projectiles.Properties.Damage, 560)
 Projectiles.setProperty("heavyimpactnitron", Projectiles.Properties.ExplosiveRadius, 450)
 Projectiles.setProperty("heavyimpactnitron", Projectiles.Properties.ImpactMomentum, 110000)
 Projectiles.setProperty("heavyimpactnitron", Projectiles.Properties.DirectHitMultiplier, 1.25)
+Projectiles.setProperty("heavyimpactnitron", Projectiles.Properties.MinDamageProportion, 0.5)
 
 Items.setProperty("light", "duelingspin", Items.Properties.Damage, 600.0)
 Items.setProperty("light", "duelingspin", Items.Properties.MinDamageProportion, 0.2)
