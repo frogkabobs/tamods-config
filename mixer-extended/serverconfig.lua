@@ -570,7 +570,7 @@ Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardHeigh
 Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardDistance, 0.00)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardInterval, 0.5)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.MinDamageProportion, 0.5)
-Items.setProperty("heavy", "extendedfractal", Items.Properties.ImpactMomentum, 60000.0)
+Projectiles.setProperty("heavy", "extendedfractal", Projectiles.Properties.ImpactMomentum, -50000.0)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.MustBounceBeforeExplode, false)
 --heavy sticky
 Items.setProperty("heavy", "heavystickygrenade", Items.Properties.MinDamageRangeProportion, 1.0)
@@ -623,9 +623,9 @@ Projectiles.setProperty("grenademkd", Projectiles.Properties.MinDamageProportion
 Projectiles.setProperty("grenademkd", Projectiles.Properties.ExplosiveRadius, 800.00)
 Projectiles.setProperty("grenademkd", Projectiles.Properties.ExplodeOnContact, true)
 
-Projectiles.setProperty("flaregrenade", Projectiles.Properties.Damage, 500)
-Projectiles.setProperty("flaregrenade", Projectiles.Properties.ExplosiveRadius, 500)
-Projectiles.setProperty("flaregrenade", Projectiles.Properties.ImpactMomentum, 50000)
+Projectiles.setProperty("flaregrenade", Projectiles.Properties.Damage, 600)
+Projectiles.setProperty("flaregrenade", Projectiles.Properties.ExplosiveRadius, 600)
+Projectiles.setProperty("flaregrenade", Projectiles.Properties.ImpactMomentum, 85000)
 
 ServerSettings.MutuallyExclusiveItems.add("Medium", "honorfusor", "Medium", "ArxBuster")
 ServerSettings.MutuallyExclusiveItems.add("Medium", "honorfusor", "Medium", "PlasmaGun")
