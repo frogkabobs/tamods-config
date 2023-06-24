@@ -39,19 +39,6 @@ ServerSettings.InventoryCallInCooldownTime = 30.0
 -------------- ADMIN -------------------------------
 require("admin")
 
-function dump(o)
-   if type(o) == 'table' then
-      local s = '{ '
-      for k,v in pairs(o) do
-         if type(k) ~= 'number' then k = '"'..k..'"' end
-         s = s .. '['..k..'] = ' .. dump(v) .. ','
-      end
-      return s .. '} '
-   else
-      return tostring(o)
-   end
-end
-
 local commands = {
     {
         name      = "NextMap",
@@ -618,7 +605,7 @@ Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardHeigh
 Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardDistance, 0.00)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardInterval, 0.5)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.MinDamageProportion, 0.5)
-Items.setProperty("heavy", "extendedfractal", Items.Properties.ImpactMomentum, -50000)
+Projectiles.setProperty("extendedfractal", Projectiles.Properties.ImpactMomentum, -50000)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.MustBounceBeforeExplode, false)
 --heavy sticky
 Items.setProperty("heavy", "heavystickygrenade", Items.Properties.MinDamageRangeProportion, 1.0)
