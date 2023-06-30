@@ -77,7 +77,7 @@ doSetupRoles(roles, loginlessRoles)
 
   --------------------------------------------------------------------------------
 Admin.Roles.addMember("admin", "fuck")
-Admin.Roles.addMember("mod", "Wrightrj")
+Admin.Roles.addMember("admin", "Wrightrj")
 Admin.Roles.addMember("admin", "Dodge")
 Admin.Roles.addMember("mod", "Gigabyte5671")
 Admin.Roles.addMember("admin", "frogkabobs")
@@ -430,8 +430,41 @@ Items.setValueMods("Light", "stealthspin", {
     table.unpack(Items.getValueMods("Light", "stealthspin"))
   })
 
---thumper d
---ServerSettings.BannedItems.add("medium", "thumperd")
+--Medium safe-fall
+Items.setValueMods("Medium", "energypack", {
+    {ValueMods.SafeFall, true},
+    table.unpack(Items.getValueMods("Medium", "energypack"))
+})
+
+Items.setValueMods("Medium", "jammerpack", {
+    {ValueMods.SonicPunch, true},
+    {ValueMods.SonicPunchFlagDrop, true},
+    {ValueMods.SonicPunchRange, 315},
+    {ValueMods.SonicPunchKnockback, 750},
+    table.unpack(Items.getValueMods("Medium", "jammerpack"))
+})
+
+Items.setValueMods("Heavy", "shieldpack", {
+    {ValueMods.Rage, true},
+    {ValueMods.RageEnergyRegen, 100},
+    {ValueMods.RageHealthRestoration, 0.5},
+    {ValueMods.RageMassChange, -0.2},
+    table.unpack(Items.getValueMods("Heavy", "shieldpack"))
+})
+
+Items.setValueMods("Heavy", "forcefield", {
+  {ValueMods.DeployableHealthBuff, 8400},
+  table.unpack(Items.getValueMods("Heavy", "forcefield"))
+})
+
+Items.setProperty("heavy", "forcefield", Items.Properties.ForcefieldMinDamage, 750)
+Items.setProperty("heavy", "forcefield", Items.Properties.ForcefieldMaxDamage, 0)
+Items.setProperty("heavy", "forcefield", Items.Properties.ForcefieldMinDamageSpeed, 0)
+Items.setProperty("heavy", "forcefield", Items.Properties.ForcefieldMaxDamageSpeed, 2777.8)
+Items.setProperty("heavy", "forcefield", Items.Properties.DeployableMaxAllowed, 2)
+Items.setProperty("heavy", "forcefield", Items.Properties.DeployableMinProximity, 0.1)
+
+  --thumper d
 
 Items.setProperty("medium", "thumperd", Items.Properties.Damage, 875)
 Items.setProperty("medium", "thumperd", Items.Properties.ExplosiveRadius, 0.01)
@@ -451,8 +484,6 @@ Items.setProperty("Medium", "dustdevil", Items.Properties.ReloadTime, 1.8)
 Items.setProperty("medium", "longrangerepairtool", Items.Properties.PawnRepairPercentage, 0.085)
 Items.setProperty("medium", "longrangerepairtool", Items.Properties.HitscanRange, 1500.0)
 --frag xl
---ServerSettings.BannedItems.add("medium", "fragxlgrenade")
-----[[
 Items.setProperty("Medium", "fragxl", Items.Properties.SpareAmmo, 2)
 Items.setProperty("Medium", "fragxl", Items.Properties.Damage, 1100.00)
 Items.setProperty("Medium", "fragxl", Items.Properties.DirectHitMultiplier, 1.0)
@@ -463,9 +494,8 @@ Items.setProperty("Medium", "fragxl", Items.Properties.MinDamageProportion, 0.5)
 Items.setProperty("Medium", "fragxl", Items.Properties.ExplosiveRadius, 600.00)
 Items.setProperty("Medium", "fragxl", Items.Properties.ExplodeOnContact, true)
 Items.setProperty("Medium", "fragxl", Items.Properties.MustBounceBeforeExplode, false)
---]]
+
 --tcng
---ServerSettings.BannedItems.add("medium", "tcngquickfuse")
 Items.setProperty("Medium", "tcng", Items.Properties.SpareAmmo, 2)
 Items.setProperty("Medium", "tcng", Items.Properties.FuseTimer, 2.0)
 Items.setProperty("Medium", "tcng", Items.Properties.Damage, 880.00)
@@ -477,7 +507,7 @@ Items.setProperty("Medium", "tcng", Items.Properties.MinDamageProportion, 0.5)
 Items.setProperty("Medium", "tcng", Items.Properties.ExplosiveRadius, 800.00)
 Items.setProperty("Medium", "tcng", Items.Properties.ExplodeOnContact, true)
 Items.setProperty("Medium", "tcng", Items.Properties.MustBounceBeforeExplode, false)
-
+--tcng quickfuse
 Items.setProperty("Medium", "tcngquickfuse", Items.Properties.SpareAmmo, 2)
 Items.setProperty("Medium", "tcngquickfuse", Items.Properties.Damage, 880.00)
 Items.setProperty("Medium", "tcngquickfuse", Items.Properties.DirectHitMultiplier, 1.25)
@@ -495,7 +525,6 @@ Items.setProperty("medium", "proxy", Items.Properties.MinDamageRangeProportion, 
 Items.setProperty("medium", "proxy", Items.Properties.MaxDamageRangeProportion, 0.0)
 
 --emp xl
---ServerSettings.BannedItems.add("medium", "empxl")
 Items.setProperty("Medium", "empxl", Items.Properties.SpareAmmo, 2)
 Items.setProperty("Medium", "empxl", Items.Properties.Damage, 500.00)
 Items.setProperty("Medium", "empxl", Items.Properties.ImpactMomentum, 85000.00)
@@ -508,7 +537,6 @@ Items.setProperty("Medium", "empxl", Items.Properties.EnergyDrain, 800)
 Items.setProperty("Medium", "emp", Items.Properties.Damage, 700.00)
 Items.setProperty("Medium", "emp", Items.Properties.ImpactMomentum, 110000.00)
 --short fuse
---ServerSettings.BannedItems.add("medium", "shortfuse")
 Items.setProperty("Medium", "shortfuse", Items.Properties.SpareAmmo, 2)
 Items.setProperty("Medium", "shortfuse", Items.Properties.FuseTimer, 1.2)
 Items.setProperty("Medium", "shortfuse", Items.Properties.Damage, 800.00)
@@ -521,8 +549,7 @@ Items.setProperty("Medium", "shortfuse", Items.Properties.ExplosiveRadius, 600.0
 Items.setProperty("Medium", "shortfuse", Items.Properties.ExplodeOnContact, true)
 Items.setProperty("Medium", "shortfuse", Items.Properties.MustBounceBeforeExplode, false)
 
---tcng quickfuse
---ServerSettings.BannedItems.add("medium", "tcngquickfuse")
+
 
 --spin mkd
 Items.setProperty("heavy", "spinfusormkd", Items.Properties.Damage, 800.0)
@@ -532,7 +559,6 @@ Items.setProperty("heavy", "spinfusormkd", Items.Properties.MaxDamageRangePropor
 Items.setProperty("heavy", "spinfusormkd", Items.Properties.ProjectileInheritance, 0.75)
 Items.setProperty("heavy", "spinfusormkd", Items.Properties.ProjectileLifespan, 12.0)
 --spin mkx
---ServerSettings.BannedItems.add("Heavy", "spinfusormkx")
 
 Items.setProperty("heavy", "spinfusormkx", Items.Properties.Damage, 700.0)
 Items.setProperty("heavy", "spinfusormkx", Items.Properties.MinDamageProportion, 0.3)
@@ -540,16 +566,8 @@ Items.setProperty("heavy", "spinfusormkx", Items.Properties.MinDamageRangePropor
 Items.setProperty("heavy", "spinfusormkx", Items.Properties.MaxDamageRangeProportion, 0.0)
 Items.setProperty("heavy", "spinfusormkx", Items.Properties.ProjectileInheritance, 0.75)
 Items.setProperty("heavy", "spinfusormkx", Items.Properties.ProjectileLifespan, 12.0)
---[[
-Items.setProperty("heavy", "spinfusormkx", Items.Properties.Damage, 800.0)
-Items.setProperty("heavy", "spinfusormkx", Items.Properties.MinDamageProportion, 0.5)
-Items.setProperty("heavy", "spinfusormkx", Items.Properties.MinDamageRangeProportion, 1.0)
-Items.setProperty("heavy", "spinfusormkx", Items.Properties.MaxDamageRangeProportion, 0.0)
-Items.setProperty("heavy", "spinfusormkx", Items.Properties.ProjectileInheritance, 0.5)
-Items.setProperty("heavy", "spinfusormkx", Items.Properties.ProjectileLifespan, 12.0)
-]]
---fusion mortar delux
---ServerSettings.BannedItems.add("Heavy", "fusionmortardeluxe")
+
+--fusion mortar deluxe
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.Damage, 1300.0)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DirectHitMultiplier, 1.15384615385)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MinDamageProportion, 0.46153846153)
@@ -564,7 +582,6 @@ Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstG
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstShrikeMultiplier, 2.5)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstBeowulfMultiplier, 2.5)
 --extended fractal
---ServerSettings.BannedItems.add("Heavy", "extendedfractal")
 Items.setProperty("heavy", "extendedfractal", Items.Properties.SpareAmmo, 2)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.Damage, 600)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.ExplosiveRadius, 700)
@@ -583,6 +600,7 @@ Items.setProperty("heavy", "extendedfractal", Items.Properties.MustBounceBeforeE
 --heavy sticky
 Items.setProperty("heavy", "heavystickygrenade", Items.Properties.MinDamageRangeProportion, 1.0)
 Items.setProperty("heavy", "heavystickygrenade", Items.Properties.MaxDamageRangeProportion, 0.0)
+Items.setProperty("heavy", "heavystickygrenade", Items.Properties.MinDamageProportion, 0.5)
 Items.setProperty("heavy", "heavystickygrenade", Items.Properties.SpareAmmo, 3)
 --spin disc
 Items.setProperty("heavy", "spindisc", Items.Properties.Damage, 600.0)
@@ -613,7 +631,7 @@ Items.setProperty("Heavy", "heavyap", Items.Properties.ImpactMomentum, 110000.00
 Items.setProperty("Heavy", "heavyap", Items.Properties.MinDamageRangeProportion, 1.0)
 Items.setProperty("Heavy", "heavyap", Items.Properties.MaxDamageRangeProportion, 0.0)
 Items.setProperty("Heavy", "heavyap", Items.Properties.MinDamageProportion, 0.5)
-Items.setProperty("Heavy", "heavyap", Items.Properties.ExplosiveRadius, 500.00)
+Items.setProperty("Heavy", "heavyap", Items.Properties.ExplosiveRadius, 600.00)
 Items.setProperty("Heavy", "heavyap", Items.Properties.ExplodeOnContact, true)
 Items.setProperty("Heavy", "heavyap", Items.Properties.MustBounceBeforeExplode, true)
 
