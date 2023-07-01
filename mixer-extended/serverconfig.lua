@@ -643,6 +643,7 @@ Items.setProperty("heavy", "spindisc", Items.Properties.DirectHitMultiplier, 1.2
 Items.setProperty("light", "duelingspin", Items.Properties.DirectHitMultiplier, 1.25)
 Items.setProperty("light", "stealthspin", Items.Properties.DirectHitMultiplier, 1.875)
 Items.setProperty("heavy", "spinfusormkd", Items.Properties.DirectHitMultiplier, 1.25)
+Items.setProperty("heavy", "spinfusormkx", Items.Properties.DirectHitMultiplier, 1.25)
 
 Projectiles.setProperty("grenademkd", Projectiles.Properties.ProjectileBounceDamping, 1.0)
 Projectiles.setProperty("grenademkd", Projectiles.Properties.Damage, 1300)
