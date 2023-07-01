@@ -432,7 +432,8 @@ Items.setValueMods("Light", "stealthspin", {
 
 --Medium safe-fall
 Items.setValueMods("Medium", "energypack", {
-    {ValueMods.SafeFall, true},
+  {ValueMods.SafeFall, true},
+  {ValueMods.EnergyBuff, 20},
     table.unpack(Items.getValueMods("Medium", "energypack"))
 })
 
