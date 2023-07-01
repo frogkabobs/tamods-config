@@ -447,7 +447,7 @@ Items.setValueMods("Medium", "jammerpack", {
 
 Items.setValueMods("Heavy", "shieldpack", {
     {ValueMods.Rage, true},
-    {ValueMods.RageEnergyRegen, 100},
+    --{ValueMods.RageEnergyRegen, 100},
     {ValueMods.RageHealthRestoration, 0.5},
     {ValueMods.RageMassChange, -0.2},
     table.unpack(Items.getValueMods("Heavy", "shieldpack"))
