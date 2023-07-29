@@ -82,7 +82,7 @@ Admin.Roles.addMember("admin", "Dodge")
 Admin.Roles.addMember("mod", "Gigabyte5671")
 Admin.Roles.addMember("admin", "frogkabobs")
 Admin.Roles.addMember("mod", "Mikesters")
-Admin.Roles.addMember("mod", "Jive")
+Admin.Roles.addMember("mod", "Jives")
 
 
 -------------- MAP ROTATION --------------
@@ -208,9 +208,9 @@ Items.setProperty("Heavy", "heavyboltlauncher", Items.Properties.ProjectileTermi
 
 --MIRV is good
 Items.setProperty("Heavy", "mirvlauncher", Items.Properties.FuseTimer, 1.25)
-Items.setProperty("Heavy", "mirvlauncher", Items.Properties.Damage, 400)
+Items.setProperty("Heavy", "mirvlauncher", Items.Properties.Damage, 320)
 Items.setProperty("Heavy", "mirvlauncher", Items.Properties.ExplosiveRadius, 550)
-Items.setProperty("Heavy", "mirvlauncher", Items.Properties.ImpactMomentum, 45000.0)
+Items.setProperty("Heavy", "mirvlauncher", Items.Properties.ImpactMomentum, 30000.0)
 
 
 --GOTY Fractals
@@ -341,7 +341,9 @@ Items.setProperty("heavy", "novacolt", Items.Properties.HoldToFire, true)
 ]]
 --more mirv bomblets
 Projectiles.setProperty("mirvlauncher", Projectiles.Properties.MIRVSecondaryExplosions, 5)
-Projectiles.setProperty("mirvlaunchersecondary", Projectiles.Properties.Damage, 400)
+Projectiles.setProperty("mirvlaunchersecondary", Projectiles.Properties.Damage, 320)
+Projectiles.setProperty("mirvlaunchersecondary", Projectiles.Properties.DirectHitMultiplier, 1.25)
+Projectiles.setProperty("mirvlaunchersecondary", Projectiles.Properties.ImpactMomentum, 30000)
 
 --more cluster bomblets
 Projectiles.setProperty("clustergrenade", Projectiles.Properties.MIRVSecondaryExplosions, 6)
