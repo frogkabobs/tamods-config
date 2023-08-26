@@ -676,5 +676,5 @@ ServerSettings.MutuallyExclusiveItems.add("Medium", "thumperd", "Medium", "Grena
 Items.setValueMods("Light", "utilitypack", {
   {ValueMods.BeltPickupBuff, 1},
   {ValueMods.ExtraBeltAmmo, 1},
-  table.unpack(Items.getValueMods("Heavy", "shieldpack"))
+  table.unpack(Items.getValueMods("Light", "utilitypack"))
 })
