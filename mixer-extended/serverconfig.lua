@@ -654,7 +654,7 @@ Projectiles.setProperty("grenademkd", Projectiles.Properties.ExplosiveRadius, 80
 Projectiles.setProperty("grenademkd", Projectiles.Properties.ExplodeOnContact, true)
 Projectiles.setProperty("grenademkd", Projectiles.Properties.DirectHitMultiplier, 1.25)
 Projectiles.setProperty("grenademkd", Projectiles.Properties.ImpactMomentum, 110000.0)
-Projectiles.setProperty("grenademkd", Projectiles.Properties.SpareAmmo, 2)
+Items.setProperty("medium", "defectivefrag", Items.Properties.SpareAmmo, 2)
 Projectiles.setProperty("grenademkd", Projectiles.Properties.MinDamageRangeProportion, 1.0)
 Projectiles.setProperty("grenademkd", Projectiles.Properties.MinDamageProportion, 0.5)
 
