@@ -281,7 +281,8 @@ Classes.setProperty("Medium", Classes.Properties.EnergyPool, 110.0)
 
 --light safe fall
 Items.setValueMods("Light", "energypack", {
-    {ValueMods.SafeFall, true},
+  {ValueMods.SafeFall, true},
+  {ValueMods.ExtraBeltAmmo, 1},
     table.unpack(Items.getValueMods("Light", "energypack"))
   })
 
@@ -576,7 +577,7 @@ Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DirectHitMulti
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MinDamageProportion, 0.46153846153)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MinDamageRangeProportion, 1.0)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MaxDamageRangeProportion, 0.0)
-Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileInheritance, 1.0)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileInheritance, 0.0)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileLifespan, 12.0)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstGeneratorMultiplier, 2.5)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstBaseTurretMultiplier, 2.5)
@@ -648,10 +649,14 @@ Items.setProperty("heavy", "spinfusormkd", Items.Properties.DirectHitMultiplier,
 Items.setProperty("heavy", "spinfusormkx", Items.Properties.DirectHitMultiplier, 1.25)
 
 Projectiles.setProperty("grenademkd", Projectiles.Properties.ProjectileBounceDamping, 1.0)
-Projectiles.setProperty("grenademkd", Projectiles.Properties.Damage, 1300)
-Projectiles.setProperty("grenademkd", Projectiles.Properties.MinDamageProportion, 0.4)
+Projectiles.setProperty("grenademkd", Projectiles.Properties.Damage, 880)
 Projectiles.setProperty("grenademkd", Projectiles.Properties.ExplosiveRadius, 800.00)
 Projectiles.setProperty("grenademkd", Projectiles.Properties.ExplodeOnContact, true)
+Projectiles.setProperty("grenademkd", Projectiles.Properties.DirectHitMultiplier, 1.25)
+Projectiles.setProperty("grenademkd", Projectiles.Properties.ImpactMomentum, 110000.0)
+Projectiles.setProperty("grenademkd", Projectiles.Properties.SpareAmmo, 2)
+Projectiles.setProperty("grenademkd", Projectiles.Properties.MinDamageRangeProportion, 1.0)
+Projectiles.setProperty("grenademkd", Projectiles.Properties.MinDamageProportion, 0.5)
 
 Projectiles.setProperty("flaregrenade", Projectiles.Properties.Damage, 600)
 Projectiles.setProperty("flaregrenade", Projectiles.Properties.ExplosiveRadius, 600)
@@ -666,3 +671,10 @@ ServerSettings.MutuallyExclusiveItems.add("Medium", "thumperd", "Medium", "ArxBu
 ServerSettings.MutuallyExclusiveItems.add("Medium", "thumperd", "Medium", "DustDevil")
 ServerSettings.MutuallyExclusiveItems.add("Medium", "thumperd", "Medium", "PlasmaGun")
 ServerSettings.MutuallyExclusiveItems.add("Medium", "thumperd", "Medium", "GrenadeLauncher")
+
+
+Items.setValueMods("Light", "utilitypack", {
+  {ValueMods.BeltPickupBuff, 1},
+  {ValueMods.ExtraBeltAmmo, 1},
+  table.unpack(Items.getValueMods("Heavy", "shieldpack"))
+})
