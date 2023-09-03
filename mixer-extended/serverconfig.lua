@@ -682,3 +682,5 @@ Items.setProperty("medium", "defectivefrag", Items.Properties.SpareAmmo, 2)
 
 Projectiles.setProperty("gravcyclepilot", Projectiles.Properties.GravGivesAirmail, true)
 Projectiles.setProperty("shrikepilot", Projectiles.Properties.ShrikeGivesAirmail, true)
+
+Items.setProperty("medium", "plasmagun", Items.Properties.SelfImpactMomentumMultiplier, 2.1)
