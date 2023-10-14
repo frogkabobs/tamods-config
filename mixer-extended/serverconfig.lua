@@ -656,6 +656,7 @@ Projectiles.setProperty("grenademkd", Projectiles.Properties.DirectHitMultiplier
 Projectiles.setProperty("grenademkd", Projectiles.Properties.ImpactMomentum, 110000.0)
 Projectiles.setProperty("grenademkd", Projectiles.Properties.MinDamageRangeProportion, 1.0)
 Projectiles.setProperty("grenademkd", Projectiles.Properties.MinDamageProportion, 0.5)
+Projectiles.setProperty("grenademkd", Projectiles.Properties.ProjectileTerminalVelocity, 7000.0)
 
 Projectiles.setProperty("flaregrenade", Projectiles.Properties.Damage, 600)
 Projectiles.setProperty("flaregrenade", Projectiles.Properties.ExplosiveRadius, 600)
@@ -684,3 +685,4 @@ Projectiles.setProperty("gravcyclepilot", Projectiles.Properties.GravGivesAirmai
 Projectiles.setProperty("shrikepilot", Projectiles.Properties.ShrikeGivesAirmail, true)
 
 Items.setProperty("medium", "plasmagun", Items.Properties.SelfImpactMomentumMultiplier, 2.1)
+Items.setProperty("medium", "elf", Items.Properties.ElfEnergyConsumptionPercentage, 2*Items.getProperty("medium", "elf", Items.Properties.ElfEnergyConsumptionPercentage))
