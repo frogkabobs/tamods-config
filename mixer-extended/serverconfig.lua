@@ -130,6 +130,7 @@ ServerSettings.MapRotation.addCustom("TrCTF-TreacherousPass")
 
 
 
+
 -------------- STANDARD OOTB SETTINGS --------------
 
 ServerSettings.MutuallyExclusiveItems.add("Light", "BXT1", "Light", "Thrust Pack")
@@ -686,3 +687,8 @@ Projectiles.setProperty("shrikepilot", Projectiles.Properties.ShrikeGivesAirmail
 
 Items.setProperty("medium", "plasmagun", Items.Properties.SelfImpactMomentumMultiplier, 2.1)
 Items.setProperty("medium", "elf", Items.Properties.ElfEnergyConsumptionPercentage, 2*Items.getProperty("medium", "elf", Items.Properties.ElfEnergyConsumptionPercentage))
+
+ServerSettings.MapRotation.addCustom("TrCTFBlitz-MazeRunner")
+ServerSettings.MapRotation.addCustom("TrCTFBlitz-AirArena")
+ServerSettings.MapRotation.addCustom("TrCTF-Andromeda")
+ServerSettings.ExperimentalMixerSettings = true
