@@ -692,3 +692,21 @@ ServerSettings.MapRotation.addCustom("TrCTFBlitz-MazeRunner")
 ServerSettings.MapRotation.addCustom("TrCTFBlitz-AirArena")
 ServerSettings.MapRotation.addCustom("TrCTF-Andromeda")
 ServerSettings.ExperimentalMixerSettings = true
+
+Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("lr1mortar"))
+Items.setProperty("medium", "lightturret", Items.Properties.DeployableRange, 10000)
+
+Projectiles.setProperty("lr1mortar", Projectiles.ProjectileSpeed, 6000)
+Projectiles.setProperty("lr1mortar", Projectiles.FuseTimer, 1.5)
+Projectiles.setProperty("lr1mortar", Projectiles.Damage, 800)
+Projectiles.setProperty("lr1mortar", Projectiles.MinDamagePercentage, 0.5)
+Projectiles.setProperty("lr1mortar", Projectiles.DirectHitMultiplier, 1.25)
+
+
+--Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("fractalgrenade"))
+
+--Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("impactnitron"))
+
+--Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("blackout"))
+
+--Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("emp"))
