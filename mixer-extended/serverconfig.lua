@@ -343,7 +343,7 @@ Items.setProperty("heavy", "novacolt", Items.Properties.HoldToFire, true)
 ]]
 --more mirv bomblets
 Projectiles.setProperty("mirvlauncher", Projectiles.Properties.MIRVSecondaryExplosions, 5)
-Projectiles.setProperty("mirvlaunchersecondary", Projectiles.Properties.Damage, 320)
+Projectiles.setProperty("mirvlaunchersecondary", Projectiles.Properties.Damage, 340)
 Projectiles.setProperty("mirvlaunchersecondary", Projectiles.Properties.DirectHitMultiplier, 1.25)
 Projectiles.setProperty("mirvlaunchersecondary", Projectiles.Properties.ImpactMomentum, 30000)
 
@@ -693,17 +693,9 @@ ServerSettings.MapRotation.addCustom("TrCTFBlitz-AirArena")
 ServerSettings.MapRotation.addCustom("TrCTF-Andromeda")
 ServerSettings.ExperimentalMixerSettings = true
 
-Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("lr1mortar"))
-Items.setProperty("medium", "lightturret", Items.Properties.DeployableRange, 10000)
-
-Projectiles.setProperty("lr1mortar", Projectiles.ProjectileSpeed, 6000)
-Projectiles.setProperty("lr1mortar", Projectiles.FuseTimer, 1.5)
-Projectiles.setProperty("lr1mortar", Projectiles.Damage, 800)
-Projectiles.setProperty("lr1mortar", Projectiles.MinDamagePercentage, 0.5)
-Projectiles.setProperty("lr1mortar", Projectiles.DirectHitMultiplier, 1.25)
-
 
 --Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("fractalgrenade"))
+--Items.setProperty("subdevice", "lightturret", Items.Properties.FireInterval, 0.5)
 
 --Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("impactnitron"))
 
