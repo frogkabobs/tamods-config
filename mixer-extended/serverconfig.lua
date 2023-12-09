@@ -694,11 +694,39 @@ ServerSettings.MapRotation.addCustom("TrCTF-Andromeda")
 ServerSettings.ExperimentalMixerSettings = true
 
 
---Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("fractalgrenade"))
---Items.setProperty("subdevice", "lightturret", Items.Properties.FireInterval, 0.5)
+distBonusItems = {
+  "lightspinfusor",
+  "lightblinksfusor",
+  "lighttwinfusor",
+  "duelingspinfusor",
+  "stealthspinfusor",
+  "boltlauncher",
 
---Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("impactnitron"))
+  "mediumspinfusor",
+  "mediumblinksfusor",
+  "mediumtwinfusor",
+  "spinfusormkx",
+  "thumper",
+  "thumperdx",
+  "honorfusor",
+  "thumperd",
 
---Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("blackout"))
+  "heavyspinfusor",
+  "heavyblinksfusor",
+  "heavytwinfusor",
+  "spinfusormkd",
+  "heavyboltlauncher",
+  "gladiator",
+  "spindisc"
+}
 
---Items.setProperty("subdevice", "lightturret", Items.Properties.DeviceProjectile, Projectiles.getId("emp"))
+
+for _, item in pairs(distBonusItems) do
+  Projectiles.setProperty(item, Projectiles.Properties.DistanceBonus, 4.0/3.0)
+  Projectiles.setProperty(item, Projectiles.Properties.DistanceBonusTime, 2.5)
+end
+
+Projectiles.setProperty("explosivenitron", Projectiles.Properties.DistanceBonus, 1.0/0.7)
+Projectiles.setProperty("explosivenitron", Projectiles.Properties.DistanceBonusTime, 2.5)
+Projectiles.setProperty("heavyimpactnitron", Projectiles.Properties.DistanceBonus, 1.0/0.7)
+Projectiles.setProperty("heavyimpactnitron", Projectiles.Properties.DistanceBonusTime, 2.5)
