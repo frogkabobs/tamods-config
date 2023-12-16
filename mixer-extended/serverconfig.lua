@@ -209,7 +209,7 @@ Items.setProperty("Heavy", "heavyboltlauncher", Items.Properties.ProjectileTermi
 
 --MIRV is good
 Items.setProperty("Heavy", "mirvlauncher", Items.Properties.FuseTimer, 1.25)
-Items.setProperty("Heavy", "mirvlauncher", Items.Properties.Damage, 320)
+Items.setProperty("Heavy", "mirvlauncher", Items.Properties.Damage, 340)
 Items.setProperty("Heavy", "mirvlauncher", Items.Properties.ExplosiveRadius, 550)
 Items.setProperty("Heavy", "mirvlauncher", Items.Properties.ImpactMomentum, 30000.0)
 
@@ -364,9 +364,10 @@ VehicleWeapons.setProperty("Beowulf Chaingun", VehicleWeapons.Properties.DeviceP
 Projectiles.setProperty("dustdevil", Projectiles.Properties.MaxDamageRangeProportion, 0.0)
 Projectiles.setProperty("dustdevil", Projectiles.Properties.MinDamageRangeProportion, 1.0)
 Projectiles.setProperty("dustdevil", Projectiles.Properties.MinDamageProportion, 0.5)
-Projectiles.setProperty("dustdevil", Projectiles.Properties.Damage, 400.0)
+Projectiles.setProperty("dustdevil", Projectiles.Properties.Damage, 250.0)
 Projectiles.setProperty("dustdevil", Projectiles.Properties.DirectHitMultiplier, 1.0)
 Projectiles.setProperty("dustdevil", Projectiles.Properties.StuckDamageMultiplier, 1.25)
+Projectiles.setProperty("dustdevil", Projectiles.Properties.EnergyDrain, 30)
 
 --saber dumbire like titan
 Projectiles.setProperty("saberlauncherdumbfire", Projectiles.Properties.Damage, 500.00)
@@ -403,7 +404,7 @@ ServerSettings.BannedItems.add("Heavy", "TheHammer")
 Items.setProperty("light", "stickyxl", Items.Properties.DirectHitMultiplier, 1.08334)
 Items.setProperty("light", "stickyxl", Items.Properties.MinDamageProportion, 0.5)
 
-Items.setProperty("light", "compactnitron", Items.Properties.ExplosiveRadius, 350)
+Items.setProperty("light", "compactnitron", Items.Properties.ExplosiveRadius, 360)
 Items.setProperty("light", "compactnitron", Items.Properties.MinDamageProportion, 0.5)
 Items.setProperty("light", "compactnitron", Items.Properties.SpareAmmo, 3)
 
@@ -482,8 +483,8 @@ Items.setProperty("Medium", "thumperd", Items.Properties.ProjectileSpeed, 3820.0
 Items.setProperty("Medium", "thumperd", Items.Properties.ProjectileLifespan, 12.0)
 
 --dust devil
-Items.setProperty("Medium", "dustdevil", Items.Properties.ClipAmmo, 4)
-Items.setProperty("Medium", "dustdevil", Items.Properties.FireInterval, 0.25)
+Items.setProperty("Medium", "dustdevil", Items.Properties.ClipAmmo, 5)
+Items.setProperty("Medium", "dustdevil", Items.Properties.FireInterval, 0.2)
 Items.setProperty("Medium", "dustdevil", Items.Properties.ReloadTime, 1.8)
 --long range repair tool
 Items.setProperty("medium", "longrangerepairtool", Items.Properties.PawnRepairPercentage, 0.085)
@@ -496,9 +497,13 @@ Items.setProperty("Medium", "fragxl", Items.Properties.ImpactMomentum, 110000.00
 Items.setProperty("Medium", "fragxl", Items.Properties.MinDamageRangeProportion, 1.0)
 Items.setProperty("Medium", "fragxl", Items.Properties.MaxDamageRangeProportion, 0.0)
 Items.setProperty("Medium", "fragxl", Items.Properties.MinDamageProportion, 0.5)
-Items.setProperty("Medium", "fragxl", Items.Properties.ExplosiveRadius, 600.00)
+Items.setProperty("Medium", "fragxl", Items.Properties.ExplosiveRadius, 1000.00)
 Items.setProperty("Medium", "fragxl", Items.Properties.ExplodeOnContact, true)
 Items.setProperty("Medium", "fragxl", Items.Properties.MustBounceBeforeExplode, false)
+Items.setProperty("Medium", "fragxl", Items.Properties.ProjectileBounceDamping, 0.0)
+Projectiles.setProperty("fragxl", Projectiles.Properties.FullyInheritVelocity, true)
+Items.setProperty("Medium", "fragxl", Items.Properties.ProjectileInheritance, 1.0)
+Items.setProperty("Medium", "fragxl", Items.Properties.ProjectileSpeed, 1800.0)
 
 --tcng
 Items.setProperty("Medium", "tcng", Items.Properties.SpareAmmo, 2)
@@ -578,7 +583,9 @@ Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DirectHitMulti
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MinDamageProportion, 0.46153846153)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MinDamageRangeProportion, 1.0)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.MaxDamageRangeProportion, 0.0)
-Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileInheritance, 0.0)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ExplosiveRadius, 550)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileSpeed, 5000)
+Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.FuseTimer, 1.5)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.ProjectileLifespan, 12.0)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstGeneratorMultiplier, 2.5)
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstBaseTurretMultiplier, 2.5)
@@ -588,19 +595,19 @@ Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstS
 Items.setProperty("heavy", "fusionmortardeluxe", Items.Properties.DamageAgainstBeowulfMultiplier, 2.5)
 --extended fractal
 Items.setProperty("heavy", "extendedfractal", Items.Properties.SpareAmmo, 2)
-Items.setProperty("heavy", "extendedfractal", Items.Properties.Damage, 600)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.Damage, 300)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.ExplosiveRadius, 700)
-Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalDuration, 1.5)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalDuration, 2.0)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalAscentTime, 0.01)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.FuseTimer, 1.0)
-Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardDamage, 400)
-Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardDamageRadius, 450)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardDamage, 100)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardDamageRadius, 500)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalAscentHeight, 0)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardHeight, 0.01)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardDistance, 0.00)
-Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardInterval, 0.5)
-Items.setProperty("heavy", "extendedfractal", Items.Properties.MinDamageProportion, 0.5)
-Items.setProperty("heavy", "extendedfractal", Items.Properties.ImpactMomentum, 60000.0)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.FractalShardInterval, 0.25)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.MinDamageProportion, 1.0)
+Items.setProperty("heavy", "extendedfractal", Items.Properties.ImpactMomentum, -30000.0)
 Items.setProperty("heavy", "extendedfractal", Items.Properties.MustBounceBeforeExplode, false)
 --heavy sticky
 Items.setProperty("heavy", "heavystickygrenade", Items.Properties.MinDamageRangeProportion, 1.0)
@@ -640,7 +647,6 @@ Items.setProperty("Heavy", "heavyap", Items.Properties.ExplosiveRadius, 600.00)
 Items.setProperty("Heavy", "heavyap", Items.Properties.ExplodeOnContact, true)
 Items.setProperty("Heavy", "heavyap", Items.Properties.MustBounceBeforeExplode, true)
 
---Items.setProperty("medium", "repairkit", Items.Properties.SpareAmmo, 2)
 
 
 Items.setProperty("heavy", "spindisc", Items.Properties.DirectHitMultiplier, 1.25)
@@ -662,6 +668,8 @@ Projectiles.setProperty("grenademkd", Projectiles.Properties.ProjectileTerminalV
 Projectiles.setProperty("flaregrenade", Projectiles.Properties.Damage, 600)
 Projectiles.setProperty("flaregrenade", Projectiles.Properties.ExplosiveRadius, 600)
 Projectiles.setProperty("flaregrenade", Projectiles.Properties.ImpactMomentum, 85000)
+
+Items.setProperty("medium", "flaregrenade", Items.Properties.SpareAmmo, 5)
 
 ServerSettings.MutuallyExclusiveItems.add("Medium", "honorfusor", "Medium", "ArxBuster")
 ServerSettings.MutuallyExclusiveItems.add("Medium", "honorfusor", "Medium", "DustDevil")
@@ -691,7 +699,7 @@ Items.setProperty("medium", "elf", Items.Properties.ElfEnergyConsumptionPercenta
 ServerSettings.MapRotation.addCustom("TrCTFBlitz-MazeRunner")
 ServerSettings.MapRotation.addCustom("TrCTFBlitz-AirArena")
 ServerSettings.MapRotation.addCustom("TrCTF-Andromeda")
-ServerSettings.ExperimentalMixerSettings = true
+--ServerSettings.ExperimentalMixerSettings = true
 
 
 distBonusItems = {
@@ -707,7 +715,6 @@ distBonusItems = {
   "mediumtwinfusor",
   "spinfusormkx",
   "thumper",
-  "thumperdx",
   "honorfusor",
   "thumperd",
 
@@ -726,7 +733,10 @@ for _, item in pairs(distBonusItems) do
   Projectiles.setProperty(item, Projectiles.Properties.DistanceBonusTime, 2.5)
 end
 
-Projectiles.setProperty("explosivenitron", Projectiles.Properties.DistanceBonus, 1.0/0.7)
+Projectiles.setProperty("explosivenitron", Projectiles.Properties.DistanceBonus, 1.429)
 Projectiles.setProperty("explosivenitron", Projectiles.Properties.DistanceBonusTime, 2.5)
-Projectiles.setProperty("heavyimpactnitron", Projectiles.Properties.DistanceBonus, 1.0/0.7)
+Projectiles.setProperty("heavyimpactnitron", Projectiles.Properties.DistanceBonus, 1.429)
 Projectiles.setProperty("heavyimpactnitron", Projectiles.Properties.DistanceBonusTime, 2.5)
+
+Projectiles.setProperty("mirvlauncher", Projectiles.Properties.PawnExplosionTime, 0.75)
+Projectiles.setProperty("mirvlauncher", Projectiles.Properties.DirectHitMultiplier, 4.412)
